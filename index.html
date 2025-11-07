@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Operations</title>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+    <section>
+        <div class="panel">
+            <h1>Arithimetic Operations</h1>
+            <label class="caption">Enter Number 1</label>
+            <input type="number" id="N1" />
+            <label class="caption">Enter Number 2</label>
+            <input type="number" id="N2" />
+            <div class="operators">
+                <button onclick="calculate(1)">+</button>
+                <button onclick="calculate(2)">-</button>
+                <button onclick="calculate(3)">x</button>
+                <button onclick="calculate(4)">/</button>
+                <button onclick="calculate(5)">%</button>
+                <button onclick="calculate(6)">**</button>
+            </div>
+            <label class="result" id="result">Result =</label>
+        </div>
+    </section>
+</body>
+<script>
+    function calculate(option){
+        N1.style.border = "";
+        N2.style.border = "";
+        if(isNaN(parseFloat(N1.value)))
+    {
+        result.innerHTML = "<span style= 'color: red'>Enter the value of N1</span>";
+        N1.style.border = "1px solid red";
+        N1.focus();
+        return;
+    }
+    else if(isNaN(parseFloat(N2.value)))
+    {
+        result.innerHTML = "<span style= 'color: red'>Enter the value of N2</span>";
+        N2.style.border = "1px solid red";
+        N2.focus();
+        return;
+    }
+        switch(option){
+            case 1:
+                let add=parseFloat(N1.value) + parseFloat(N2.value);
+                result.innerHTML = "Result = "+add;
+                break;
+            case 2:
+                let sub=parseFloat(N1.value) - parseFloat(N2.value)
+                result.innerHTML = "Result = "+sub;
+                break;
+            case 3:
+                let mul=parseFloat(N1.value) * parseFloat(N2.value)
+                result.innerHTML = "Result = "+mul;
+                break;
+            case 4:
+                let div=parseFloat(N1.value)/parseFloat(N2.value)
+                result.innerHTML = "Result = "+div;
+                break;
+            case 5:
+                let mod=parseFloat(N1.value)%parseFloat(N2.value)
+                result.innerHTML = "Result = "+mod;
+                break;
+            case 6:
+                let exp=parseFloat(N1.value)**parseFloat(N2.value)
+                result.innerHTML = "Result = "+exp;
+                break;     
+        }
+    }
+</script>
+</html>
